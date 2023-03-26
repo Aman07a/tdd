@@ -1,15 +1,36 @@
 import { greeter } from "./greeter";
 
 describe("greeter", () => {
-  test("helloWorld given default should return `Hello world!`", () => {
-    // Arrange
-    const expected = "Hello world!";
-    const sut = greeter();
+  describe("helloPerson", () => {
+    describe("empty name", () => {
+      it.only("should return `Hello !`", () => {
+        // Arrange
+        const expected = "Hello !";
+        const input = "";
 
-    // Act
-    const actual = sut.helloWorld();
+        const sut = greeter();
 
-    // Assert
-    expect(actual).toBe(expected);
+        // Act
+        const actual = sut.helloPerson(input);
+
+        // Assert
+        expect(actual).toBe(expected);
+      });
+    });
+    describe("given name", () => {
+      test('skipped should return "Hello `NAME`!"', () => {
+        // Arrange
+        const expected = "Hello Peter!";
+        const input = "Peter";
+
+        const sut = greeter();
+
+        // Act
+        const actual = sut.helloPerson(input);
+
+        // Assert
+        expect(actual).toBe(expected);
+      });
+    });
   });
 });

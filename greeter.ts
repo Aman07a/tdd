@@ -3,5 +3,8 @@ export function greeter() {
     helloWorld: function () {
       return "Hello world!";
     },
+    helloPerson: function (name: string) {
+      return "Hello " + name + "!";
+    },
   };
 }
