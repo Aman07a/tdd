@@ -3,7 +3,7 @@ import { greeter } from "./greeter";
 describe("greeter", () => {
   describe("helloPerson", () => {
     describe("empty name", () => {
-      it.only("should return `Hello !`", () => {
+      it("should return `Hello !`", () => {
         // Arrange
         const expected = "Hello !";
         const input = "";
@@ -18,7 +18,7 @@ describe("greeter", () => {
       });
     });
     describe("given name", () => {
-      test('skipped should return "Hello `NAME`!"', () => {
+      it("should return `Hello NAME!`", () => {
         // Arrange
         const expected = "Hello Peter!";
         const input = "Peter";
@@ -27,6 +27,20 @@ describe("greeter", () => {
 
         // Act
         const actual = sut.helloPerson(input);
+
+        // Assert
+        expect(actual).toBe(expected);
+      });
+    });
+
+    describe("helloWorld", () => {
+      test("helloWorld given default should return `Hello world!`", () => {
+        // Arrange
+        const expected = "Hello world!";
+        const sut = greeter();
+
+        // Act
+        const actual = sut.helloWorld();
 
         // Assert
         expect(actual).toBe(expected);
